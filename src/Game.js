@@ -9,22 +9,9 @@ const Game = () => {
     ["", "", ""],
   ];
 
-  const [board, setBoard] = useState(...initialBoard);
+  const [board, setBoard] = useState(initialBoard);
   const [player, setPlayer] = useState("X");
   const [winner, setWinner] = useState("");
-
-  useEffect(() => {
-    checkWinner();
-  }, [board, player]);
-
-  const handlePress = (rIndex, nIndex) => {
-    if (board[rIndex][nIndex] === "" && !winner) {
-      const newBoard = [...board];
-      newBoard[rIndex][nIndex] = player;
-      setBoard(newBoard);
-      setPlayer(player === "X" ? "O" : "X");
-    }
-  };
 
   const checkWinner = () => {
     // rows
@@ -32,7 +19,7 @@ const Game = () => {
       if (
         board[i][0] !== "" &&
         board[i][0] === board[i][1] &&
-        board[i][1] === board[i][2]
+        board[i][0] === board[i][2]
       ) {
         setWinner(board[i][0]);
         return;
@@ -44,7 +31,7 @@ const Game = () => {
       if (
         board[0][i] !== "" &&
         board[0][i] === board[1][i] &&
-        board[1][i] === board[2][i]
+        board[0][i] === board[2][i]
       ) {
         setWinner(board[0][i]);
         return;
@@ -55,45 +42,53 @@ const Game = () => {
     if (
       board[0][0] !== "" &&
       board[0][0] === board[1][1] &&
-      board[1][1] === board[2][2]
+      board[0][0] === board[2][2]
     ) {
       setWinner(board[0][0]);
       return;
     } else if (
       board[0][2] !== "" &&
-      board[2][2] === board[1][1] &&
-      board[1][1] === board[2][0]
+      board[0][2] === board[1][1] &&
+      board[0][2] === board[2][0]
     ) {
       setWinner(board[0][2]);
       return;
     }
   };
 
+  const checkTie = () => {
+    const isBoardFull = board.every((row) => {
+      return row.every((node) => node !== "");
+    });
+
+    if (isBoardFull) {
+      Alert.alert("It's a tie!!!", "", [{ text: "OK", onPress: resetBoard }]);
+    }
+  };
+
   const resetBoard = () => {
-    setBoard(...initialBoard);
+    setBoard(initialBoard);
     setPlayer("X");
     setWinner("");
   };
 
-  useEffect(() => {
-    if (winner) {
-      Alert.alert(`Player ${winner} won!!!`, "", [
-        { text: "OK", onPress: resetBoard },
-      ]);
+  const handlePress = (rIndex, nIndex) => {
+    if (board[rIndex][nIndex] === "" && !winner) {
+      const newBoard = [...board];
+      newBoard[rIndex][nIndex] = player;
+      setBoard(newBoard);
+      checkWinner();
+      setPlayer(player === "X" ? "O" : "X");
     }
-  }, [winner]);
+  };
 
-  useEffect(() => {
-    if (!winner) {
-      const isBoardFull = board.every((row) => {
-        return row.every((node) => node !== "");
-      });
-
-      if (isBoardFull) {
-        Alert.alert("It's a tie!!!", "", [{ text: "OK", onPress: resetBoard }]);
-      }
-    }
-  }, [board, winner]);
+  if (winner) {
+    Alert.alert(`Player ${winner} won!!!`, "", [
+      { text: "OK", onPress: resetBoard },
+    ]);
+  } else {
+    checkTie();
+  }
 
   return (
     <View style={styles.container}>
