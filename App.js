@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import Game from "./src/Game";
+import Game from "./src/screen/Game";
 
 export default function App() {
   return (
