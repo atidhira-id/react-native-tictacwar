@@ -1,25 +1,49 @@
-import { StyleSheet, View } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import Game from "./src/screen/Game";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Menu from "./screen/Menu";
+import Game from "./screen/Game";
+import Instructions from "./screen/Instructions";
+import Credits from "./screen/Credits";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <LinearGradient colors={["#221d81", "#232332"]} style={styles.container}>
-      <View style={styles.overlay}>
-        <Game />
-      </View>
-    </LinearGradient>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Menu">
+        <Stack.Screen
+          name="Menu"
+          component={Menu}
+          options={{
+            title: "Menu",
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="Game"
+          component={Game}
+          options={{
+            title: "TicTacWar Game",
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="Instructions"
+          component={Instructions}
+          options={{
+            title: "Instructions",
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="Credits"
+          component={Credits}
+          options={{
+            title: "Credits",
+            headerTitleAlign: "center",
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  overlay: {
-    flex: 1,
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
