@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, Alert } from "react-native";
 import styles from "./styles";
 import useTicTacWar from "../../hooks/useTicTacWar";
-import Board from "../Board";
+import Board from "../../components/Board";
 
 const Game = () => {
   const { board, player, winner, isTie, handlePress, handleReset } =
