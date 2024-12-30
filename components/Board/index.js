@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View } from "react-native";
+import Node from "../Node";
 import styles from "./styles";
 
 const Board = ({ board, onPress }) => {
@@ -8,13 +9,11 @@ const Board = ({ board, onPress }) => {
       {board.map((row, rIndex) => (
         <View key={rIndex} style={styles.row}>
           {row.map((node, nIndex) => (
-            <TouchableOpacity
+            <Node
               key={nIndex}
-              style={styles.node}
-              onPress={() => onPress(rIndex, nIndex)}
-            >
-              <Text style={styles.nodeText}>{node}</Text>
-            </TouchableOpacity>
+              text={node}
+              handlePress={() => onPress(rIndex, nIndex)}
+            />
           ))}
         </View>
       ))}
