@@ -10,29 +10,29 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Menu">
+      <Stack.Navigator
+        initialRouteName="Menu"
+        screenOptions={{ headerTitleAlign: "center" }}
+      >
         <Stack.Screen
           name="Menu"
           component={Menu}
           options={{
             title: "Menu",
-            headerTitleAlign: "center",
           }}
         />
         <Stack.Screen
           name="Game"
           component={Game}
           options={{
-            title: "TicTacWar Game",
-            headerTitleAlign: "center",
+            title: "TicTacWar",
           }}
         />
         <Stack.Screen
           name="Instructions"
           component={Instructions}
           options={{
-            title: "Instructions",
-            headerTitleAlign: "center",
+            title: "Instruksi Permainan",
           }}
         />
         <Stack.Screen
@@ -40,7 +40,6 @@ export default function App() {
           component={Credits}
           options={{
             title: "Credits",
-            headerTitleAlign: "center",
           }}
         />
       </Stack.Navigator>
