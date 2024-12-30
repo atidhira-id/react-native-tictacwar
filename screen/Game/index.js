@@ -18,7 +18,6 @@ const Game = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>TicTacWar</Text>
       <Board board={board} onPress={handlePress} />
       <TouchableOpacity style={styles.resetButton} onPress={handleReset}>
         <Text style={styles.resetButtonText}>Reset</Text>
