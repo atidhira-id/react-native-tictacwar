@@ -17,7 +17,6 @@ const Instructions = () => {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.header}>Instruksi Permainan</Text>
       {instructions.map((instruction, index) => (
         <Text key={index} style={styles.instruction}>
           {`${index + 1}. ${instruction}`}

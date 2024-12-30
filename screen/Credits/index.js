@@ -5,8 +5,6 @@ import styles from "./styles";
 const Credits = () => {
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.header}>Credits</Text>
-
       <Text style={styles.sectionHeader}>Dibuat Oleh:</Text>
       <Text style={styles.text}>Atidhira Habibillah</Text>
       <Text style={styles.text}>Role: Developer</Text>
