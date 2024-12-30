@@ -6,11 +6,11 @@ const Node = ({ text, handlePress }) => {
   return (
     <TouchableOpacity style={styles.node} onPress={() => handlePress()}>
       <Text style={styles.text}>{text}</Text>
-      {text ? (
+      {/* {text ? (
         <View style={styles.numerator}>
           <Text>1</Text>
         </View>
-      ) : null}
+      ) : null} */}
     </TouchableOpacity>
   );
 };
