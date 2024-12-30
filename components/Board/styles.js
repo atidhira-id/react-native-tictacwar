@@ -4,20 +4,11 @@ const styles = StyleSheet.create({
   board: {
     marginTop: 20,
     backgroundColor: "#bbb",
+    borderWidth: 1,
   },
   row: {
+    flex: 1,
     flexDirection: "row",
-  },
-  node: {
-    width: 100,
-    height: 100,
-    backgroundColor: "#fff",
-    borderWidth: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  nodeText: {
-    fontSize: 36,
   },
 });
 
