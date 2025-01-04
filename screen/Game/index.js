@@ -1,10 +1,12 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Alert } from "react-native";
-import styles from "./styles";
 import useTicTacWar from "../../hooks/useTicTacWar";
 import Board from "../../components/Board";
+import { useGlobalStyles } from "../../styles/styles";
+import styles from "./styles";
 
 const Game = () => {
+  const globalStyles = useGlobalStyles();
   const { board, player, winner, isTie, handlePress, handleReset } =
     useTicTacWar();
 
@@ -17,14 +19,15 @@ const Game = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.container}>
+      <View style={styles.gameStatus}>
+        <Text style={globalStyles.text}>PLAYER = {player}</Text>
+        <Text style={globalStyles.text}>WINNER = {winner || "NONE"}</Text>
+      </View>
       <Board board={board} onPress={handlePress} />
-      <TouchableOpacity style={styles.resetButton} onPress={handleReset}>
-        <Text style={styles.resetButtonText}>Reset</Text>
+      <TouchableOpacity style={globalStyles.button} onPress={handleReset}>
+        <Text style={globalStyles.buttonText}>Reset Game</Text>
       </TouchableOpacity>
-      <Text>player: {player}</Text>
-      <Text>winner: {winner}</Text>
-      <Text>isTie: {isTie ? "YES" : "NO"}</Text>
     </View>
   );
 };
