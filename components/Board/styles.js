@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
+import { palette } from "../../styles/palette";
 
 const styles = StyleSheet.create({
   board: {
-    marginTop: 20,
-    backgroundColor: "#bbb",
+    marginVertical: 20,
     borderWidth: 1,
+    borderColor: palette.darkBlue,
   },
   row: {
     flex: 1,
