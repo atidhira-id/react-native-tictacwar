@@ -1,17 +1,20 @@
 import { StyleSheet } from "react-native";
+import { palette } from "../../styles/palette";
 
 const styles = StyleSheet.create({
   node: {
     width: 100,
     height: 100,
-    backgroundColor: "#aaa",
+    backgroundColor: palette.blue,
     borderWidth: 1,
+    borderColor: palette.darkBlue,
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
   },
   text: {
     fontSize: 36,
+    color: palette.darkBlue,
   },
   numerator: {
     width: 15,
