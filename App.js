@@ -4,15 +4,24 @@ import Menu from "./screen/Menu";
 import Game from "./screen/Game";
 import Instructions from "./screen/Instructions";
 import Credits from "./screen/Credits";
+import { useGlobalStyles } from "./styles/styles";
+import { palette } from "./styles/palette";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const styles = useGlobalStyles();
+
   return (
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Menu"
-        screenOptions={{ headerTitleAlign: "center" }}
+        screenOptions={{
+          headerTitleAlign: "center",
+          headerStyle: styles.header,
+          headerTitleStyle: styles.headerTitle,
+          headerTintColor: palette.lightBlue,
+        }}
       >
         <Stack.Screen
           name="Menu"
