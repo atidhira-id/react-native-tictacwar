@@ -1,22 +1,32 @@
 import React from "react";
-import { View, Button } from "react-native";
+import { View, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import styles from "./styles";
+import { useGlobalStyles } from "../../styles/styles";
 
 const Menu = () => {
   const navigation = useNavigation();
+  const styles = useGlobalStyles();
 
   return (
     <View style={styles.container}>
-      <Button
-        title="Play The Game"
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate("Game")}
-      />
-      <Button
-        title="How To Play"
+      >
+        <Text style={styles.buttonText}>Play The Game</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.navigate("Instructions")}
-      />
-      <Button title="Credits" onPress={() => navigation.navigate("Credits")} />
+      >
+        <Text style={styles.buttonText}>How To Play</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Credits")}
+      >
+        <Text style={styles.buttonText}>Credits</Text>
+      </TouchableOpacity>
     </View>
   );
 };
