@@ -11,9 +11,9 @@ const Credits = () => {
 
       <Text style={styles.sectionHeader}>Support Team:</Text>
       <Text style={styles.text}>- Muh. Attokillah S.H</Text>
-      <Text style={styles.text}>- Muh. Farros Putra</Text>
-      <Text style={styles.text}>- Adillah Giyats</Text>
-      <Text style={styles.text}>- Danang</Text>
+      <Text style={styles.text}>- Muh. Farros Putra P</Text>
+      <Text style={styles.text}>- Adilah Ghiyats Syafiq P</Text>
+      <Text style={styles.text}>- Danang Dwi Prasetyo</Text>
 
       <Text style={styles.sectionHeader}>Dibuat dengan:</Text>
       <Text style={styles.text}>- React Native</Text>
