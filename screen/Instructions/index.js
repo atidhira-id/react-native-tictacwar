@@ -1,10 +1,12 @@
 import React from "react";
 import { Text, ScrollView, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useGlobalStyles } from "../../styles/styles";
 import styles from "./styles";
 
 const Instructions = () => {
   const navigation = useNavigation();
+  const globalStyles = useGlobalStyles();
 
   const instructions = [
     "Game dimainkan pada petak permainan 3x3.",
@@ -23,10 +25,10 @@ const Instructions = () => {
         </Text>
       ))}
       <TouchableOpacity
-        style={styles.button}
+        style={[globalStyles.button, styles.button]}
         onPress={() => navigation.navigate("Game")}
       >
-        <Text style={styles.buttonText}>Play the Game</Text>
+        <Text style={globalStyles.buttonText}>Play the Game</Text>
       </TouchableOpacity>
     </ScrollView>
   );
