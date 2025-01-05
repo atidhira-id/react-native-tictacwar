@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
     borderColor: palette.darkBlue,
   },
   row: {
-    flex: 1,
     flexDirection: "row",
   },
 });
