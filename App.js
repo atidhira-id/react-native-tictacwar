@@ -21,6 +21,8 @@ export default function App() {
           headerStyle: styles.header,
           headerTitleStyle: styles.headerTitle,
           headerTintColor: palette.lightBlue,
+          animation: "fade",
+          presentation: "transparentModal",
         }}
       >
         <Stack.Screen
